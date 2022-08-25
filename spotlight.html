@@ -1,0 +1,124 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+  const feed = "https://web.tarleton.edu/news/category/spotlight/feed/";
+  var arrtitle = [];
+  var linkret = [];
+  var decarr = [];
+  var ctaArray = [];
+
+  $.ajax(feed, {
+    accepts:{
+      xml:"application/rss+xml"
+    },
+    dataType:"xml",
+    success:function(data) {
+
+      $(data).find("item").each(function () {
+        var el = $(this);
+        var title = el.find("title").text();
+        arrtitle.push(title);
+        var link =  el.find("link").text();
+        linkret.push(link);
+        var desc =  el.find("description").text();
+        decarr.push(desc);
+        var cta = el.find("action").text();
+        ctaArray.push(cta);
+
+        document.getElementById("title1").innerHTML = arrtitle[0];
+        document.getElementById("link1").href = linkret[0];
+        document.getElementById("desc1").innerHTML = decarr[0];
+        document.getElementById("desc11").innerHTML = decarr[0];
+        document.getElementById("cta1").innerHTML = ctaArray[0];
+
+        document.getElementById("title2").innerHTML = arrtitle[1];
+        document.getElementById("link2").href = linkret[1];
+        document.getElementById("desc2").innerHTML = decarr[1];
+        document.getElementById("desc22").innerHTML = decarr[1];
+        document.getElementById("cta2").innerHTML = ctaArray[1];
+
+        document.getElementById("title3").innerHTML = arrtitle[2];
+        document.getElementById("link3").href = linkret[2];
+        document.getElementById("desc3").innerHTML = decarr[2];
+        document.getElementById("desc33").innerHTML = decarr[2];
+        document.getElementById("cta3").innerHTML = ctaArray[2];
+
+        document.getElementById("title4").innerHTML = arrtitle[3];
+        document.getElementById("link4").href = linkret[3];
+        document.getElementById("desc4").innerHTML = decarr[3];
+        document.getElementById("desc44").innerHTML = decarr[3];
+        document.getElementById("cta4").innerHTML = ctaArray[3];
+
+        document.getElementById("title5").innerHTML = arrtitle[4];
+        document.getElementById("link5").href = linkret[4];
+        document.getElementById("desc5").innerHTML = decarr[4];
+        document.getElementById("desc55").innerHTML = decarr[4];
+        document.getElementById("cta5").innerHTML = ctaArray[4];
+      });
+    }
+  });
+</script>
+<div class="carousel has-bg-image bg-purple padding-top padding-bottom spotlight">
+<div class="slab-container">
+<h2>Spotlight</h2>
+<div class="carousel-feature">
+
+<div class="item">
+<div class="media"><p id="desc1"></p>
+</div>
+<div class="copy">
+<div class="title"><p id="title1"></p></div>
+<div class="detail"><p id="desc11"></p></div>
+<a id="link1" class="button"><span id="cta1"></span></a></div>
+</div>
+
+<div class="item">
+<div class="media"><p id="desc2"></p></div>
+<div class="copy">
+<div class="title"><p id="title2"></p></div>
+<div class="detail"><p id="desc22"></p></div>
+<a id="link2" class="button"><span id="cta2"></span></a></div>
+</div>
+
+<div class="item">
+<div class="media"><p id="desc3"></p></div>
+<div class="copy">
+<div class="title"><p id="title3"></p></div>
+<div class="detail"><p id="desc33"></p></div>
+<a id="link3" class="button"><span id="cta3"></span></a></div>
+</div>
+
+<div class="item">
+<div class="media"><p id="desc4"></p></div>
+<div class="copy">
+<div class="title"><p id="title4"></p></div>
+<div class="detail"><p id="desc44"></p></div>
+<a class="button" id="link4"><span id="cta4"></span></a></div>
+</div>
+
+<div class="item">
+<div class="media"><p id="desc5"></p></div>
+<div class="copy">
+<div class="title"><p id="title5"></p></div>
+<div class="detail"><p id="desc55"></p></div>
+<a class="button" id="link5"><span id="cta5"></span></a></div>
+</div>
+
+</div>
+</div>
+</div>
+<style>
+.detail img{
+  display:none !important;
+}
+.media{
+  font-size: 0px;
+}
+img.webfeedsFeaturedVisual.wp-post-image {
+    height: auto;
+    width: auto;
+}
+.default-featured-img{
+  height: auto;
+  width: auto;
+}
+</style>
